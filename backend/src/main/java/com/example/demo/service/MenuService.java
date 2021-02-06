@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * (Menu)表服务实现类
@@ -25,8 +26,24 @@ public class MenuService
      */
     public List<Menu> queryPCMenuList()
     {
-        return menuDao.findPCMenuList();
+        List<Menu> pcMenuList = menuDao.findPCMenuList();
+        pcMenuList.forEach(menu ->{
+            menu.setChildren(getMenuList(menu.getPkid()));
+        });
+        return pcMenuList;
     }
+
+    private List<Menu> getMenuList(String pkid) {
+        List<Menu> menus =menuDao.findPCMenuListByParentId(pkid);
+        menus.forEach(menu ->{
+            menu.setChildren(getMenuList(menu.getPkid()));
+        });
+        return menus;
+    }
+
+
+
+
     /**
      * 通过ID查询单条数据
      *
@@ -56,8 +73,10 @@ public class MenuService
      * @param menu 实例对象
      * @return 实例对象
      */
-    public Menu insert(Menu menu)
+    public Menu saveMenu(Menu menu)
     {
+        String pkid = UUID.randomUUID().toString();
+        menu.setPkid(pkid);
         menuDao.insert(menu);
         return menu;
     }

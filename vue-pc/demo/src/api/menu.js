@@ -7,3 +7,12 @@ export  function queryMenuList (){
     url: '/menu/pc/queryMenuList',
   });
 }
+
+export  function addMenu (data){
+  return http({
+    method: 'post',
+    url: '/menu/addMenu',
+    type:'json',
+    data:data
+  });
+}

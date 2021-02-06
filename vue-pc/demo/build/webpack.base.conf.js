@@ -92,7 +92,7 @@ module.exports = {
 
 
   externals:{
-    'jquery': 'jquery',
+    '$': 'jquery',
     'WxLogin': 'WxLogin',
   }
 }

@@ -1,10 +1,12 @@
 package com.example.demo.pojo;
 
+import com.alibaba.fastjson.annotation.JSONField;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * (Menu)实体类
@@ -29,7 +31,8 @@ public class Menu implements Serializable
     /**
      * 父级菜单
      */
-    private String parentid;
+    @JSONField(name = "parent_id")
+    private String parentId;
 
     /**
      * 菜单排序
@@ -45,5 +48,9 @@ public class Menu implements Serializable
 
     private String type;
 
+    @JSONField(name = "create_time")
     private String createTime;
+
+
+    private List<Menu> children;
 }

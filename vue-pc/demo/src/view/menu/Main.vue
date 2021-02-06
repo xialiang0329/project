@@ -1,6 +1,5 @@
 <template>
-    <div style="height: 100%">
-
+    <div style="height: 100%;">
       <el-row :gutter="20">
         <el-col :span="5">
           <div style="background-color: #FFF;padding: 2px;">
@@ -17,59 +16,38 @@
                        :filter-node-method="filterNode"
                        ref="tree"
                        @node-click="handleNodeClick">
+                <span class="custom-tree-node" slot-scope="{ node, data }">
+                  <span :class="checkedMenu.pkid == data.pkid ? 'node-color-blue' : 'node-color-none'">{{ node.label }}</span>
+                </span>
                </el-tree>
             </div>
           </div>
         </el-col>
         <el-col :span="19">
           <div style="background-color: #FFF;height: 100%">
-
-            <el-form ref="form" :model="form" label-width="80px">
-              <el-form-item label="活动名称">
-                <el-input v-model="form.name"></el-input>
-              </el-form-item>
-              <el-form-item label="活动区域">
-                <el-select v-model="form.region" placeholder="请选择活动区域">
-                  <el-option label="区域一" value="shanghai"></el-option>
-                  <el-option label="区域二" value="beijing"></el-option>
-                </el-select>
-              </el-form-item>
-              <el-form-item label="活动时间">
-                <el-col :span="11">
-                  <el-date-picker type="date" placeholder="选择日期" v-model="form.date1" style="width: 100%;"></el-date-picker>
-                </el-col>
-                <el-col class="line" :span="2">-</el-col>
-                <el-col :span="11">
-                  <el-time-picker placeholder="选择时间" v-model="form.date2" style="width: 100%;"></el-time-picker>
-                </el-col>
-              </el-form-item>
-              <el-form-item label="即时配送">
-                <el-switch v-model="form.delivery"></el-switch>
-              </el-form-item>
-              <el-form-item label="活动性质">
-                <el-checkbox-group v-model="form.type">
-                  <el-checkbox label="美食/餐厅线上活动" name="type"></el-checkbox>
-                  <el-checkbox label="地推活动" name="type"></el-checkbox>
-                  <el-checkbox label="线下主题活动" name="type"></el-checkbox>
-                  <el-checkbox label="单纯品牌曝光" name="type"></el-checkbox>
-                </el-checkbox-group>
-              </el-form-item>
-              <el-form-item label="特殊资源">
-                <el-radio-group v-model="form.resource">
-                  <el-radio label="线上品牌商赞助"></el-radio>
-                  <el-radio label="线下场地免费"></el-radio>
-                </el-radio-group>
-              </el-form-item>
-              <el-form-item label="活动形式">
-                <el-input type="textarea" v-model="form.desc"></el-input>
-              </el-form-item>
-              <el-form-item>
-                <el-button type="primary" @click="onSubmit">立即创建</el-button>
-                <el-button>取消</el-button>
-              </el-form-item>
-            </el-form>
-
-
+              <el-form  :rules="rules" ref="ruleForm" :model="form" class="demo-ruleForm"  label-width="80px" style="padding: 10%">
+                <el-form-item label="上级菜单" >
+                  <el-input v-model="checkedMenu.name" disabled></el-input>
+                </el-form-item>
+                <el-form-item label="菜单名称" prop="name">
+                  <el-input v-model="form.name"></el-input>
+                </el-form-item>
+                <el-form-item label="菜单图标">
+                  <el-input v-model="form.icon"></el-input>
+                </el-form-item>
+                <el-form-item label="菜单路径">
+                  <el-input v-model="form.url"></el-input>
+                </el-form-item>
+                <el-form-item label="菜单类型">
+                  <el-select v-model="form.type" style="width: 100%">
+                    <el-option  label="pc" value="pc"></el-option>
+                    <el-option  label="mobile" value="mobile"></el-option>
+                  </el-select>
+                </el-form-item>
+                <el-form-item>
+                  <el-button type="primary" @click="onSubmit">提交</el-button>
+                </el-form-item>
+              </el-form>
           </div>
         </el-col>
       </el-row>
@@ -77,10 +55,11 @@
 </template>
 
 <script>
-    import {queryMenuList} from "../../api/menu";
+  import {addMenu, queryMenuList} from "../../api/menu";
+    import dateFormat from "../../common/util";
 
     export default {
-        name: "Main",
+      name: "Main",
       watch: {
         filterText(val) {
           this.$refs.tree.filter(val);
@@ -90,22 +69,29 @@
         return {
           filterText: '',
           menuList: [],
+          checkedMenu: {},
           defaultProps: {
             children: 'children',
             label: 'name'
           },
-
           form: {
+            pkid:'',
+            type:'pc',
             name: '',
-            region: '',
-            date1: '',
-            date2: '',
-            delivery: false,
-            type: [],
-            resource: '',
-            desc: ''
+            icon: '',
+            parentId:'',
+            sort:'',
+            url: '',
+            createTime:'',
+            children:[]
+          },
+          rules: {
+            name: [
+              {required: true, message: '请输入菜单名称', trigger: 'blur'},
+              {max: 50, message: '长度在 1 到 50 个字符', trigger: 'blur'}
+            ]
           }
-        };
+        }
       },
       created() {
           this.initMain();
@@ -129,14 +115,47 @@
         },
         filterNode(value, data) {
           if (!value) return true;
-          return data.label.indexOf(value) !== -1;
+          return data.name.indexOf(value) !== -1;
         },
         handleNodeClick(data) {
-          console.log(data);
+          let $this = this;
+          if (!$.isEmptyObject($this.checkedMenu) && data.pkid == $this.checkedMenu.pkid) {
+            $this.checkedMenu = {};
+            return;
+          }
+          $this.checkedMenu = data;
+          $this.form = JSON.parse(JSON.stringify(data));
         },
 
         onSubmit() {
-          console.log('submit!');
+          let $this = this;
+          $this.form.createTime = dateFormat('YYYY-mm-dd HH:MM:SS',new Date());
+          if ($.isEmptyObject($this.checkedMenu)) {
+            //顶级
+            $this.form.parentId = '-1';
+            $this.form.sort = $this.menuList.length + 1;
+          } else {
+            $this.form.parentId = $this.checkedMenu.pkid;
+            $this.form.sort = $this.checkedMenu.children.length + 1;
+          }
+          addMenu($this.form).then(res =>{
+            $this.form.pkid = res.data;
+            $this.form.children = [];
+            if (!$.isEmptyObject($this.checkedMenu)) {
+              $this.checkedMenu.children.push($this.form);
+            } else {
+              $this.menuList.push($this.form);
+            }
+            $this.$store.commit('setMenuList',$this.menuList);
+          }).catch(error =>{
+            $this.$message({
+              message: error.response.data.message,
+              type: 'error'
+            });
+          })
+        },
+        resetForm(formName) {
+          this.$refs[formName].resetFields();
         }
       }
     }
@@ -150,6 +169,14 @@
   .el-col {
     height: 100%;
     border-radius: 4px;
+  }
+
+  .node-color-blue{
+    font-size: 14px;
+    color: #409EFF;
+  }
+  .node-color-none{
+    font-size: 14px;
   }
 
 </style>

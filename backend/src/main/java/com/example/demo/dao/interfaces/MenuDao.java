@@ -21,6 +21,12 @@ public interface MenuDao
      * @return 实例对象
      */
     List<Menu> findPCMenuList();
+
+    /**
+     * 查询子级集合
+     * @return 实例对象
+     */
+    List<Menu> findPCMenuListByParentId(String parentId);
     /**
      * 通过ID查询单条数据
      *

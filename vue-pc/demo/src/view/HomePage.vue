@@ -7,38 +7,55 @@
               测试服务平台
             </div>
           </div>
-          <div class="headImg">
-            <div>
-              <i class="el-icon-edit"   style="vertical-align:middle;font-size: 20px;color: #FFF"></i>
-              <i class="el-icon-share"  style="vertical-align:middle;font-size: 20px;color: #FFF"></i>
-              <i class="el-icon-delete" style="vertical-align:middle;font-size: 20px;color: #FFF"></i>
+          <div class="headImg cursorPointer">
+            <div >
+              <i class="el-icon-bell"   style="vertical-align:middle;font-size: 25px;color: #FFF"></i>
+              <el-badge is-dot class="item" style="position: relative;right: 20px;top: -5px"></el-badge>
             </div>
-            <div>
-              <img style="width: 40px;height: 40px;border-radius: 50%" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" alt="">
-              <span class="grid-content">tom</span>
+            <div style="margin-right: 20px">
+              <el-dropdown trigger="click" style="height: 50px">
+                <div >
+                  <img style="width: 40px;height: 40px;border-radius: 50%;" src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png" alt="">
+                </div>
+                <el-dropdown-menu slot="dropdown" style="top: 50px">
+                  <el-dropdown-item icon="el-icon-lock">修改密码</el-dropdown-item>
+                  <el-dropdown-item icon="el-icon-user">个人中心</el-dropdown-item>
+                  <el-dropdown-item icon="el-icon-switch-button">退出登录</el-dropdown-item>
+                </el-dropdown-menu>
+              </el-dropdown>
             </div>
-            <div>
-              <img src="../assets/imgs/closeSystem.png" style="width: 20px;margin-bottom:10px" alt="">
-            </div>
-
           </div>
         </el-header>
         <el-container>
           <el-aside width="200px" style="height: 100%" >
             <div class="outer-container">
               <div class="inner-container">
-                <el-menu :default-active="defaultActive" router class="el-menu-vertical-demo"
+                <el-menu :default-active="menuList[0] ? menuList[0].url : ''" router class="el-menu-vertical-demo"
                          background-color="#545c64"
                          text-color="#fff"
                          active-text-color="#ffd04b"
                          style="width: 100%;border: none;" :collapse="isCollapse">
-                  <el-menu-item v-for="(menu,index) in menuList " :key="index" :index="menu.url" >
-                    <div class="nowrap">
-                      <i :class="menu.icon"></i>
-                      {{menu.name}}
-                    </div>
-                    <span slot="title">{{menu.name}}</span>
-                  </el-menu-item>
+
+                  <div v-for="(menu,index) in menuList ">
+                    <el-submenu v-if="menu.children && menu.children.length > 0" :key="index" :index="menu.url">
+                      <template slot="title">
+                        <i :class="menu.icon"></i>
+                        <span slot="title">{{menu.name}}</span>
+                      </template>
+                      <el-menu-item  v-for="(menuChildren,indexChildren) in menu.children " :key="indexChildren" :index="menuChildren.url">
+                        <template slot="title">
+                          <i :class="menuChildren.icon"></i>
+                          <span slot="title">{{menuChildren.name}}</span>
+                        </template>
+                      </el-menu-item>
+                    </el-submenu>
+                    <el-menu-item v-else :key="index" :index="menu.url">
+                      <template slot="title">
+                        <i :class="menu.icon"></i>
+                        <span slot="title">{{menu.name}}</span>
+                      </template>
+                    </el-menu-item>
+                  </div>
                 </el-menu>
               </div>
             </div>
@@ -59,9 +76,8 @@
      name: "HomePage",
      data(){
        return {
-         defaultActive:"",
          menuList:[],
-         isCollapse: true,
+         isCollapse: false,
        }
      },
      created() {
@@ -70,19 +86,22 @@
      methods: {
        initHomePage(){
          let $this = this;
-         //查询菜单集合
-         queryMenuList().then(res =>{
-           $this.menuList = res.data;
-           if (res.data.length > 0) {
-             $this.defaultActive = $this.menuList[0].url;
-           }
-         }).catch(error =>{
-           $this.$message({
-             message: '菜单查询出错!',
-             type: 'error'
-           });
-         })
-       }
+
+         if ($this.$store.getters.getMenuList.length>0) {
+           $this.menuList = $this.$store.getters.getMenuList;
+         } else {
+           //查询菜单集合
+           queryMenuList().then(res =>{
+             $this.menuList = res.data;
+             $this.$store.commit('setMenuList',$this.menuList)
+           }).catch(error =>{
+             $this.$message({
+               message: '菜单查询出错!',
+               type: 'error'
+             });
+           })
+         }
+       },
      }
    }
 </script>
@@ -154,6 +173,5 @@
   }
   .headImg >div{
     display: inline-block;
-    margin-left: 10px;
   }
 </style>

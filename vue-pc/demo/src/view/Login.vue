@@ -12,22 +12,21 @@
             </div>
             <div v-show="!isQrCode" >
               <div style="color:#409eff;margin-bottom: 20px " class="cursorPointer">
-                <span @click="loginOrAdd = !loginOrAdd" :class="!loginOrAdd?'fontSize25':'fontSize20'">登录</span>
-                <span class="fontSize25">/</span>
-                <span @click="loginOrAdd = !loginOrAdd" :class="loginOrAdd?'fontSize25':'fontSize20'">注册</span>
+                <span  class="fontSize25">登录</span>
               </div>
-              <div v-show="!loginOrAdd">
+              <div>
                 <div class="inputDiv">
                   <i class="el-icon-user"></i>
-                  <input  type="text" placeholder="请输入账号" class="inputClass" v-model="input1"></input>
+                  <input  type="text" placeholder="请输入账号" class="inputClass" v-model="account.accountName"></input>
                 </div>
                 <div class="inputDiv">
                   <i class="el-icon-lock"></i>
-                  <input type="password" placeholder="请输入密码" class="inputClass" v-model="input2"></input>
+                  <input type="password" placeholder="请输入密码" class="inputClass" v-model="account.password"></input>
                 </div>
-                <div class="inputDiv">
+                <div class="inputDiv" style="position: relative">
                   <i class="el-icon-picture-outline"></i>
-                  <input type="text" placeholder="请输入验证码" class="inputClass" v-model="input2"></input>
+                  <input type="text" placeholder="请输入验证码" class="inputClass" style="padding-right: 25%" v-model="account.code"></input>
+                  <img class="imageCode"  :src="imageStr" alt="" @click="queryImageCode()" >
                 </div>
                 <div>
                   <div class="row">
@@ -37,25 +36,10 @@
                     <i class="el-icon-mobile "><el-link type="primary">短信登录</el-link></i>
                   </div>
                 </div>
-                <el-button type="primary" round style="width: 65%;font-size: 18px;margin-bottom: 3%">点 击 登 录</el-button>
+                <el-button type="primary" round style="width: 65%;font-size: 18px;margin-bottom: 3%" @click="submit()" @keyup="submit()">点 击 登 录</el-button>
                 <div style="width:49%;float:right;">
                   <el-link type="primary">忘记密码？</el-link>
                 </div>
-              </div>
-              <div v-show="loginOrAdd">
-                <div class="inputDiv">
-                  <i class="el-icon-user"></i>
-                  <input  type="text" placeholder="请输入账号" class="inputClass" v-model="input1"></input>
-                </div>
-                <div class="inputDiv">
-                  <i class="el-icon-lock"></i>
-                  <input type="password" placeholder="请输入密码" class="inputClass" v-model="input2"></input>
-                </div>
-                <div class="inputDiv">
-                  <i class="el-icon-lock"></i>
-                  <input type="password" placeholder="确认密码" class="inputClass" v-model="input2"></input>
-                </div>
-                <el-button type="primary" round style="width: 65%;font-size: 18px;margin-bottom: 3%">点 击 注 册</el-button>
               </div>
             </div>
             <div v-show="isQrCode" id="login_container"></div>
@@ -64,23 +48,85 @@
 </template>
 
 <script>
+  import {getImageCode, verityImageCode, login} from "../api/login";
+
     export default {
         name: "Login",
       data (){
           return {
             isQrCode:false,//登录方式
-            loginOrAdd:false,//登录还是添加
-            input1:"",
-            input2:"",
+            account:{
+              accountName:"",
+              password:"",
+              code:"",
+            },
+            imageStr:"",
             checked:false
           }
       },
       created() {
-
+        if (window.localStorage.getItem("token")) {
+          this.goHomePage();
+          return;
+        }
+        this.queryImageCode();
       },
       mounted() {
       },
       methods:{
+        queryImageCode(){
+          getImageCode().then(res =>{
+            this.imageStr = res.data;
+          }).catch(error =>{});
+        },
+        checkAccount(){
+          let $this = this;
+          if (!$this.account.accountName) {
+            return false;
+          }
+          if (!$this.account.password) {
+            return false;
+          }
+          if (!$this.account.code) {
+            return false;
+          }
+          return true;
+        },
+        submit(){
+          let $this = this;
+          if ($this.checkAccount()) {
+            verityImageCode($this.account.code).then(res =>{
+              if (res.data) {
+                let data = {
+                  password:$this.$md5($this.account.password),
+                  accountName:$this.account.accountName
+                }
+                login(data).then(res =>{
+                 // window.localStorage.setItem("token",data.password)
+                  $this.goHomePage();
+                }).catch(error =>{
+                  $this.queryImageCode();
+                  console.log(error)
+                  $this.$message({
+                    message: error.response.data.message,
+                    type: 'error'
+                  });
+                })
+              }
+            }).catch(error =>{
+              $this.queryImageCode();
+              $this.$message({
+                message: error.response.data.message,
+                type: 'warning'
+              });
+            });
+          } else {
+            $this.$message({
+              message: '输入框不可为空!',
+              type: 'warning'
+            });
+          }
+        },
         isQrCodeChange:function () {
               let $this = this;
               $this.isQrCode = !$this.isQrCode;
@@ -93,9 +139,15 @@
             "id" : "login_container",
             "appid" : "ww87cb2dc52371604e",//appid
             "agentid" : "1000004",//agentid
-            "redirect_uri" :"http://bcead4d3609e.ngrok.io/loginUser/getQrCode",//回调地址，注意回调地址需要进行urlencode
+            "redirect_uri" :"http://xialiang.free.idcfengye.com/account/getQrCode",//回调地址，注意回调地址需要进行urlencode
             "state" : "x",//用于保持请求和回调的状态，授权请求后原样带回给企业。该参数可用于防止csrf攻击,参数非必填
             "href" : "",//自定义样式链接，企业可根据实际需求覆盖默认样式，参数非必填
+          });
+        },
+        goHomePage(){
+          let $this = this;
+          $this.$router.push({
+            path:"/homePage"
           });
         }
       }
@@ -169,6 +221,13 @@
     display: inline-block
   }
 
+  .imageCode {
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    right: 20%;
+    top: 25%;
+  }
 
 
 </style>

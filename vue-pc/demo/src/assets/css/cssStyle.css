@@ -12,3 +12,23 @@
 .fontSize25{
   font-size: 25px;
 }
+
+/* 隐藏滚动条 可滑动 */
+.outer-container{
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.inner-container{
+  position: absolute;
+  left: 0;
+  top: 2px;
+  right: 0;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.inner-container::-webkit-scrollbar {
+  display: none;
+}

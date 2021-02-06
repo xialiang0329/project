@@ -11,9 +11,16 @@ export default new Router({
       component:() => import('../view/Login.vue')
     },
     {
-      path: '/',
+      path: '/homePage',
       name: 'HomePage',
-      component:() => import('../view/user/HomePage.vue')
-    }
+      component:() => import('../view/HomePage.vue'),
+      children:[
+        {
+          path: '/menu/main',
+          name: 'Main',
+          component:() => import('../view/menu/Main.vue')
+        }
+      ]
+    },
   ]
 })

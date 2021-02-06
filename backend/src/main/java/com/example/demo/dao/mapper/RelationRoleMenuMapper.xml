@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.interfaces.RelationRoleMenuDao">
+
+    <resultMap type="com.example.demo.pojo.RelationRoleMenu" id="RelationRoleMenuMap">
+        <result property="pkid" column="pkid" jdbcType="VARCHAR"/>
+        <result property="roleid" column="roleId" jdbcType="VARCHAR"/>
+        <result property="menuid" column="menuId" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="RelationRoleMenuMap">
+        select
+          pkid, roleId, menuId
+        from vue_private.relation_role_menu
+        where pkid = #{pkid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="RelationRoleMenuMap">
+        select
+          pkid, roleId, menuId
+        from vue_private.relation_role_menu
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="RelationRoleMenuMap">
+        select
+        pkid, roleId, menuId
+        from vue_private.relation_role_menu
+        <where>
+            <if test="pkid != null and pkid != ''">
+                and pkid = #{pkid}
+            </if>
+            <if test="roleid != null and roleid != ''">
+                and roleId = #{roleid}
+            </if>
+            <if test="menuid != null and menuid != ''">
+                and menuId = #{menuid}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="pkid" useGeneratedKeys="true">
+        insert into vue_private.relation_role_menu(roleId, menuId)
+        values (#{roleid}, #{menuid})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="pkid" useGeneratedKeys="true">
+        insert into vue_private.relation_role_menu(roleId, menuId)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.roleid}, #{entity.menuid})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="pkid" useGeneratedKeys="true">
+        insert into vue_private.relation_role_menu(roleId, menuId)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.roleid}, #{entity.menuid})
+        </foreach>
+        on duplicate key update
+        roleId = values(roleId) , menuId = values(menuId)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update vue_private.relation_role_menu
+        <set>
+            <if test="roleid != null and roleid != ''">
+                roleId = #{roleid},
+            </if>
+            <if test="menuid != null and menuid != ''">
+                menuId = #{menuid},
+            </if>
+        </set>
+        where pkid = #{pkid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from vue_private.relation_role_menu where pkid = #{pkid}
+    </delete>
+
+</mapper>
+

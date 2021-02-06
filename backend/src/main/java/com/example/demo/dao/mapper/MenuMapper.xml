@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.dao.interfaces.MenuDao">
+
+    <resultMap type="com.example.demo.pojo.Menu" id="MenuMap">
+        <result property="pkid" column="pkid" jdbcType="VARCHAR"/>
+        <result property="name" column="name" jdbcType="VARCHAR"/>
+        <result property="parentid" column="parentId" jdbcType="VARCHAR"/>
+        <result property="sort" column="sort" jdbcType="VARCHAR"/>
+        <result property="icon" column="icon" jdbcType="VARCHAR"/>
+        <result property="url" column="url" jdbcType="VARCHAR"/>
+        <result property="type" column="type" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询多个pc端-->
+    <select id="findPCMenuList" resultMap="MenuMap">
+        select
+          pkid, name, parentId, sort, icon, url, type, create_time
+        from menu where type = 'pc'
+    </select>
+    <!--查询单个-->
+    <select id="queryById" resultMap="MenuMap">
+        select
+          pkid, name, parentId, sort, icon, create_time
+        from vue_private.menu
+        where pkid = #{pkid}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="MenuMap">
+        select
+          pkid, name, parentId, sort, icon, create_time
+        from vue_private.menu
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="MenuMap">
+        select
+        pkid, name, parentId, sort, icon, create_time
+        from vue_private.menu
+        <where>
+            <if test="pkid != null and pkid != ''">
+                and pkid = #{pkid}
+            </if>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="parentid != null and parentid != ''">
+                and parentId = #{parentid}
+            </if>
+            <if test="sort != null and sort != ''">
+                and sort = #{sort}
+            </if>
+            <if test="icon != null and icon != ''">
+                and icon = #{icon}
+            </if>
+            <if test="createTime != null and createTime != ''">
+                and create_time = #{createTime}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="pkid" useGeneratedKeys="true">
+        insert into vue_private.menu(name, parentId, sort, icon, create_time)
+        values (#{name}, #{parentid}, #{sort}, #{icon}, #{createTime})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="pkid" useGeneratedKeys="true">
+        insert into vue_private.menu(name, parentId, sort, icon, create_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.name}, #{entity.parentid}, #{entity.sort}, #{entity.icon}, #{entity.createTime})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="pkid" useGeneratedKeys="true">
+        insert into vue_private.menu(name, parentId, sort, icon, create_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.name}, #{entity.parentid}, #{entity.sort}, #{entity.icon}, #{entity.createTime})
+        </foreach>
+        on duplicate key update
+        name = values(name) , parentId = values(parentId) , sort = values(sort) , icon = values(icon) , create_time =
+        values(create_time)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update vue_private.menu
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="parentid != null and parentid != ''">
+                parentId = #{parentid},
+            </if>
+            <if test="sort != null and sort != ''">
+                sort = #{sort},
+            </if>
+            <if test="icon != null and icon != ''">
+                icon = #{icon},
+            </if>
+            <if test="createTime != null and createTime != ''">
+                create_time = #{createTime},
+            </if>
+        </set>
+        where pkid = #{pkid}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from vue_private.menu where pkid = #{pkid}
+    </delete>
+
+</mapper>
+

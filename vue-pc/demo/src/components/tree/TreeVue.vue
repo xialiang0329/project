@@ -1,12 +1,19 @@
+
+<!--
+
+  element-ui  自带树结构
+
+-->
+
 <template>
     <div>
-      。。。。。。。。。。。。。。。。。。123
+
     </div>
 </template>
 
 <script>
     export default {
-        name: "HomePage"
+        name: ""
     }
 </script>
 

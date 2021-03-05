@@ -90,9 +90,10 @@ module.exports = {
     child_process: 'empty'
   },
 
-
   externals:{
     '$': 'jquery',
-    'WxLogin': 'WxLogin',
-  }
+    "BMap" : "BMap",
+    "AMap" : "AMap",
+    'WxLogin': 'WxLogin'
+  },
 }

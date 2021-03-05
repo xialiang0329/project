@@ -60,8 +60,8 @@
               </div>
             </div>
           </el-aside>
-          <el-main>
-            <router-view />
+          <el-main >
+            <router-view style="height: 100%"/>
           </el-main>
         </el-container>
       </el-container>
@@ -86,7 +86,6 @@
      methods: {
        initHomePage(){
          let $this = this;
-
          if ($this.$store.getters.getMenuList.length>0) {
            $this.menuList = $this.$store.getters.getMenuList;
          } else {

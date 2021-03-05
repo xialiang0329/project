@@ -59,7 +59,7 @@
     import dateFormat from "../../common/util";
 
     export default {
-      name: "Main",
+      name: "MenuMain",
       watch: {
         filterText(val) {
           this.$refs.tree.filter(val);
@@ -133,12 +133,13 @@
           if ($.isEmptyObject($this.checkedMenu)) {
             //顶级
             $this.form.parentId = '-1';
-            $this.form.sort = $this.menuList.length + 1;
+            $this.form.sort = $this.menuList.length;
           } else {
             $this.form.parentId = $this.checkedMenu.pkid;
-            $this.form.sort = $this.checkedMenu.children.length + 1;
+            $this.form.sort = $this.checkedMenu.children.length;
           }
           addMenu($this.form).then(res =>{
+            $this.$message({message: "新增成功!", type: 'success'});
             $this.form.pkid = res.data;
             $this.form.children = [];
             if (!$.isEmptyObject($this.checkedMenu)) {
@@ -146,6 +147,7 @@
             } else {
               $this.menuList.push($this.form);
             }
+            $this.resetForm("ruleForm");
             $this.$store.commit('setMenuList',$this.menuList);
           }).catch(error =>{
             $this.$message({

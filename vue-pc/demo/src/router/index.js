@@ -17,8 +17,18 @@ export default new Router({
       children:[
         {
           path: '/menu/main',
-          name: 'Main',
-          component:() => import('../view/menu/Main.vue')
+          name: 'MenuMain',
+          component:() => import('../view/menu/MenuMain.vue')
+        },
+        {
+          path: '/map/main',
+          name: 'MapMain',
+          component:() => import('../view/map/MapMain.vue')
+        },
+        {
+          path: '/user/main',
+          name: 'UserMain',
+          component:() => import('../view/user/UserMain.vue')
         }
       ]
     },

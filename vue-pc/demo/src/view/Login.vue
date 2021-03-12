@@ -36,7 +36,7 @@
                     <i class="el-icon-mobile "><el-link type="primary">短信登录</el-link></i>
                   </div>
                 </div>
-                <el-button type="primary" round style="width: 65%;font-size: 18px;margin-bottom: 3%" @click="submit()" @keyup="submit()">点 击 登 录</el-button>
+                <el-button type="primary" round style="width: 65%;font-size: 18px;margin-bottom: 3%" @click="submit()" @keyup.enter="submit()">点 击 登 录</el-button>
                 <div style="width:49%;float:right;">
                   <el-link type="primary">忘记密码？</el-link>
                 </div>

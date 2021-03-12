@@ -3,8 +3,16 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import md5 from 'js-md5';
+import Cube from 'cube-ui'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.config.productionTip = false
+
+Vue.prototype.$md5 = md5;
+Vue.use(Cube)
+Vue.use(ElementUI);
 
 /* eslint-disable no-new */
 new Vue({
@@ -12,4 +20,11 @@ new Vue({
   router,
   components: { App },
   template: '<App/>'
+})
+router.beforeEach((to, from, next) => {
+  /* 路由发生变化修改页面title */
+  if (to.meta[0]) {
+    document.title = to.meta[0]
+  }
+  next();
 })

@@ -16,7 +16,7 @@ export default new Router({
       component:() => import('../view/HomePage.vue'),
       children:[
         {
-          path: '/menu/main',
+          path: ' /menu/main',
           name: 'MenuMain',
           component:() => import('../view/menu/MenuMain.vue')
         },
@@ -29,6 +29,11 @@ export default new Router({
           path: '/user/main',
           name: 'UserMain',
           component:() => import('../view/user/UserMain.vue')
+        },
+        {
+          path: '/monitor/main',
+          name: 'MonitorMain',
+          component:() => import('../view/monitor/MonitorMain.vue')
         }
       ]
     },

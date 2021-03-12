@@ -11,7 +11,7 @@
  Target Server Version : 50651
  File Encoding         : 65001
 
- Date: 06/02/2021 17:34:06
+ Date: 12/03/2021 18:08:59
 */
 
 SET NAMES utf8mb4;
@@ -33,7 +33,7 @@ CREATE TABLE `account`  (
 -- ----------------------------
 -- Records of account
 -- ----------------------------
-INSERT INTO `account` VALUES ('7866a6cf-9195-4b84-a6c0-181091d762c7', 'xialiang', '812687930ea1042d971976f1dad37eef', '2021-02-04 15:46:12', NULL);
+INSERT INTO `account` VALUES ('7866a6cf-9195-4b84-a6c0-181091d762c7', 'xialiang', '812687930ea1042d971976f1dad37eef', '2021-02-04 15:46:12', 'a65fe3b1-8292-403d-b2d8-075f9fa8d77d');
 
 -- ----------------------------
 -- Table structure for menu
@@ -54,8 +54,10 @@ CREATE TABLE `menu`  (
 -- ----------------------------
 -- Records of menu
 -- ----------------------------
+INSERT INTO `menu` VALUES ('063f652b-a631-4b02-a9d8-f27ec3aa677b', '监控', '-1', '3', '/monitor/main', 'pc', 'el-icon-monitor', '2021-03-09 14:52:44');
+INSERT INTO `menu` VALUES ('277da4d6-d656-4f79-88de-e193f068ea2d', '地图', '-1', '2', '/map/main', 'pc', 'el-icon-position', '2021-03-05 15:12:58');
 INSERT INTO `menu` VALUES ('836ac97a-9424-4c05-aa01-3586fc7962a6', '菜单管理', '-1', '0', '/menu/main', 'pc', 'el-icon-menu', '2021-02-05 13:39:25');
-INSERT INTO `menu` VALUES ('bfcd9f66-af4d-4b5f-bb62-9247b36230d6', '用户管理', '-1', '0', '/user/main', 'pc', 'el-icon-user', '2021-02-06 14:31:38');
+INSERT INTO `menu` VALUES ('bfcd9f66-af4d-4b5f-bb62-9247b36230d6', '用户管理', '-1', '1', '/user/main', 'pc', 'el-icon-user', '2021-02-06 14:31:38');
 
 -- ----------------------------
 -- Table structure for relation_role_menu

@@ -14,7 +14,6 @@ export  function getAddress (accessToken){
   return http({
     method: 'post',
     url: 'https://open.ys7.com/api/lapp/v2/live/address/get?accessToken='+accessToken+'&deviceSerial=78957921&channelNo=1',
-    data:null,
     Host:'open.ys7.com',
     'Content-Type': 'application/x-www-form-urlencoded'
   });

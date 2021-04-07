@@ -1,0 +1,29 @@
+.nowrap{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+
+.circel_outside{
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  background-color: rgb(66, 185, 131);
+  border: 1px #d0d0d0 solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto
+}
+.circel_within{
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  background-color: rgb(66, 185, 131);
+  border: 1px #eae9e9 solid;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto
+}

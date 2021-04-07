@@ -4,13 +4,14 @@
 
 <template>
   <div >
-    <router-view  style="height: 100%"/>
-    <div style="position: absolute;bottom: 0;width: 100%;border-top: 1px #dcd7d7 solid;background-color: rgba(236 ,236 ,236,0.5);">
+    <router-view  style="height: 92%;overflow-y: auto"/>
+    <div style="position: absolute;bottom: 0;width: 100%;border-top: 1px #dcd7d7 solid;background-color: #f9f9f9;height: 50px">
       <cube-tab-bar
         v-model="selectedLabelDefault"
         @click="clickHandler"
+        style="height: 50px"
         >
-          <cube-tab v-for="(item, index) in tabs" :label="item.label" :key="item.label" >
+          <cube-tab v-for="(item, index) in tabs" :label="item.label" :key="item.label" style="margin-top: 5px">
               <!-- name为icon的插槽 -->
               <i slot="icon" :class="item.icon" style="font-size: 20px"></i>
               <br>
@@ -19,15 +20,29 @@
           </cube-tab>
       </cube-tab-bar>
     </div>
-    <!--<div><img src="../assets/imgs/saoyisao.png" @click="scanQR()" alt=""></div>-->
+
   </div>
 </template>
 
 <script>
-  import {wxJSSDKConifg} from "../api/weChat";
 
     export default {
-        name: "HomePage",
+      name: "HomePage",
+      watch: {
+        '$route.path': function (newVal, oldVal) {
+          let selectedLabelDefault = "首页";
+          if (newVal === '/homePage/message') {
+            selectedLabelDefault = '信息';
+          }else if (newVal === '/homePage/tag') {
+            selectedLabelDefault = '主题';
+          }else if (newVal === '/homePage/person') {
+            selectedLabelDefault = '我的';
+          }
+          this.$nextTick(function () {
+            this.selectedLabelDefault = selectedLabelDefault;
+          });
+        }
+      },
       data(){
           return {
               wxJSSDK:{
@@ -59,8 +74,22 @@
           }
       },
       created() {
-          let $this = this;
-          //先获取config
+        let $this = this;
+          //获取当前路径
+        let curWwwPath=window.document.location.href;
+        let indexOf = curWwwPath.indexOf("?");
+        let route = curWwwPath.substring(curWwwPath.indexOf("#/") + 1,indexOf == -1 ? curWwwPath.length: indexOf);
+          let selectedLabelDefault = "首页";
+          if (route === '/homePage/message') {
+            selectedLabelDefault = '信息';
+          }else if (route === '/homePage/tag') {
+            selectedLabelDefault = '主题';
+          }else if (route === '/homePage/person') {
+            selectedLabelDefault = '我的';
+          }
+        this.selectedLabelDefault = selectedLabelDefault;
+
+        //先获取config
         /*wxJSSDKConifg().then(response =>{
           let data = response.data;
           console.log(data)

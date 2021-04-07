@@ -11,7 +11,6 @@ export  function verityImageCode (code){
   return http({
     method: 'get',
     url: '/account/verityImageCode?imageCode='+code,
-    type:'json'
   });
 }
 export  function login (data){

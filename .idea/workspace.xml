@@ -1,130 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dac1b675-70bf-4c26-8746-8278ed20912c" name="Default Changelist" comment="logback 日志打印 不同等级至不同文件 及 debug无用日志过滤">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/common/socketio/config/SocketioConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/common/socketio/pojo/WebSocketioMessage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/common/socketio/server/SocketioServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/common/util/JsonTypeHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/common/util/pdfUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controller/MessageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dao/interfaces/MessageDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/pojo/Contacts.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/pojo/Message.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/service/MessageService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/mapper/MessageDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-pc/demo/src/api/user.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-pc/demo/src/assets/imgs/chatRoomGround.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/vue-pc/demo/src/view/chatroom/ChatRoom.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_classic_1_2_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__ch_qos_logback_logback_core_1_2_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_11_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_annotations_2_11_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_11_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_core_2_11_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_11_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_11_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_11_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_11_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_11_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_11_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_11_2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_11_2.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_jayway_jsonpath_json_path_2_4_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_vaadin_external_google_android_json_0_0_20131108_vaadin1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_3_4_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_zaxxer_HikariCP_3_4_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_activation_jakarta_activation_api_1_2_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_annotation_jakarta_annotation_api_1_3_5.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__jakarta_xml_bind_jakarta_xml_bind_api_2_3_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_21.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__mysql_mysql_connector_java_8_0_21.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_1_10_14.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_bytebuddy_byte_buddy_agent_1_10_14.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_accessors_smart_1_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__net_minidev_json_smart_2_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_13_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_api_2_13_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_13_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_logging_log4j_log4j_to_slf4j_2_13_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_38.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_38.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_38.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_38.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apiguardian_apiguardian_api_1_1_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_assertj_assertj_core_3_16_1.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_attoparser_attoparser_2_0_5_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_attoparser_attoparser_2_0_5_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jakarta_el_3_0_3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_glassfish_jakarta_el_3_0_3.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_2_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_5_6_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_api_5_6_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_engine_5_6_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_jupiter_junit_jupiter_params_5_6_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_commons_1_6_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_platform_junit_platform_engine_1_6_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_junit_vintage_junit_vintage_engine_5_6_2.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_core_3_3_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mockito_mockito_junit_jupiter_3_3_3.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_objenesis_objenesis_2_6.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_opentest4j_opentest4j_1_2_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_0_4.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_12.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_projectlombok_lombok_1_18_12.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_skyscreamer_jsonassert_1_5_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_30.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_30.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_30.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_30.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_3_4_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_3_4_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_3_4_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jdbc_2_3_4_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_3_4_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_3_4_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_3_4_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_thymeleaf_2_3_4_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_3_4_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_3_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_3_4_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_3_4_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_3_4_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_2_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_aop_5_2_9_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_2_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_beans_5_2_9_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_2_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_context_5_2_9_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_2_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_core_5_2_9_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_2_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_expression_5_2_9_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_2_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jcl_5_2_9_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_2_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_jdbc_5_2_9_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_test_5_2_9_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_2_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_tx_5_2_9_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_2_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_web_5_2_9_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_9_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_spring_webmvc_5_2_9_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_java8time_3_0_4_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_extras_thymeleaf_extras_java8time_3_0_4_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_11_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_3_0_11_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring5_3_0_11_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_thymeleaf_thymeleaf_spring5_3_0_11_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_unbescape_unbescape_1_1_6_RELEASE.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_unbescape_unbescape_1_1_6_RELEASE.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_xmlunit_xmlunit_core_2_7_0.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_26.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_yaml_snakeyaml_1_26.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+    <list default="true" id="dac1b675-70bf-4c26-8746-8278ed20912c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/common/util/ImageLocationUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/image/imageTest.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/common/code/StatusCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/common/code/StatusCodeEnum.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/common/util/EntWeChatUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/common/util/EntWeChatUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/common/util/TokenUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/common/util/TokenUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controller/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controller/AccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dao/interfaces/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dao/interfaces/UserDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dao/mapper/AccountMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dao/mapper/AccountMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dao/mapper/MenuMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dao/mapper/MenuMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dao/mapper/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/dao/mapper/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/pojo/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/pojo/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/pojo/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/pojo/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/pojo/RelationRoleMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/pojo/RelationRoleMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/pojo/Role.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/pojo/Role.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/pojo/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/pojo/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/service/AccountService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/service/AccountService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/service/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/src/main/resources/logback-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/resources/logback-spring.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-pc/demo/build/webpack.base.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-pc/demo/build/webpack.base.conf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-pc/demo/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue-pc/demo/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-pc/demo/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue-pc/demo/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-pc/demo/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue-pc/demo/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-pc/demo/src/assets/css/cssStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/vue-pc/demo/src/assets/css/cssStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-pc/demo/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-pc/demo/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-pc/demo/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-pc/demo/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-pc/demo/src/store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-pc/demo/src/store/store.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-pc/demo/src/utils/request.js" beforeDir="false" afterPath="$PROJECT_DIR$/vue-pc/demo/src/utils/request.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-pc/demo/src/view/HomePage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-pc/demo/src/view/HomePage.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-pc/demo/src/view/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-pc/demo/src/view/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-pc/demo/src/view/menu/MenuMain.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-pc/demo/src/view/menu/MenuMain.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue-pc/demo/src/view/user/UserMain.vue" beforeDir="false" afterPath="$PROJECT_DIR$/vue-pc/demo/src/view/user/UserMain.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,7 +53,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../workspace_xl/hoyacloud" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/src/main/resources/image" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -187,16 +67,6 @@
     <property name="ts.external.directory.path" value="F:\software\IntelliJ IDEA 2020.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\demo\test-cloud-demo\vue-pc\demo\src\assets\imgs" />
-      <recent name="F:\demo\test-cloud-demo\backend\src\main\resources\static" />
-      <recent name="F:\demo\test-cloud-demo\backend\target\classes" />
-      <recent name="F:\demo\test-cloud-demo\backend\src\main\resources" />
-      <recent name="F:\demo\test-cloud-demo\vue-phone\demo\src\assets\imgs" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.example.demo.common.socket.server" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\demo\test-cloud-demo\backend\src\main\resources" />
       <recent name="F:\demo\test-cloud-demo\backend\src\main\resources\config" />
@@ -204,8 +74,18 @@
       <recent name="F:\demo\test-cloud-demo\vue-pc\demo\src" />
       <recent name="F:\demo\test-cloud-demo\vue-pc\demo\src\view" />
     </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.demo.common.socket.server" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\demo\test-cloud-demo\backend\src\main\resources\image" />
+      <recent name="F:\demo\test-cloud-demo\vue-pc\demo\src\assets\imgs" />
+      <recent name="F:\demo\test-cloud-demo\backend\src\main\resources\static" />
+      <recent name="F:\demo\test-cloud-demo\backend\target\classes" />
+      <recent name="F:\demo\test-cloud-demo\backend\src\main\resources" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.TokenUtil">
+  <component name="RunManager" selected="Application.ImageLocationUtil">
     <configuration name="AccountService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.demo.service.AccountService" />
       <module name="backend" />
@@ -219,12 +99,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MenuController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.demo.controller.MenuController" />
+    <configuration name="ImageLocationUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.common.util.ImageLocationUtil" />
       <module name="backend" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.demo.controller.*" />
+          <option name="PATTERN" value="com.example.demo.common.util.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -283,11 +163,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ImageLocationUtil" />
         <item itemvalue="Application.TokenUtil" />
         <item itemvalue="Application.pdfUtil" />
         <item itemvalue="Application.AccountService" />
         <item itemvalue="Application.WeChatOfficialAccountUtil" />
-        <item itemvalue="Application.MenuController" />
       </list>
     </recent_temporary>
   </component>
@@ -327,6 +207,7 @@
       <workItem from="1619771449341" duration="231000" />
       <workItem from="1619771760969" duration="1233000" />
       <workItem from="1620262775433" duration="670000" />
+      <workItem from="1620617168683" duration="11295000" />
     </task>
     <task id="LOCAL-00001" summary="测试文件提交">
       <created>1611832041905</created>
@@ -391,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1618991751883</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="。。。。。。。。。。。。。。。。">
+      <created>1620617377891</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1620617377891</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -407,7 +295,8 @@
     <MESSAGE value="sql" />
     <MESSAGE value="修改" />
     <MESSAGE value="logback 日志打印 不同等级至不同文件 及 debug无用日志过滤" />
-    <option name="LAST_COMMIT_MESSAGE" value="logback 日志打印 不同等级至不同文件 及 debug无用日志过滤" />
+    <MESSAGE value="。。。。。。。。。。。。。。。。" />
+    <option name="LAST_COMMIT_MESSAGE" value="。。。。。。。。。。。。。。。。" />
   </component>
   <component name="WindowStateProjectService">
     <state x="820" y="417" key="#Custom_Plugin_Repositories" timestamp="1612336317282">
@@ -438,14 +327,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="294" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619322092459" />
-    <state x="217" y="266" width="767" height="598" key="#xdebugger.evaluate" timestamp="1619420288479">
+    <state x="217" y="266" width="767" height="598" key="#xdebugger.evaluate" timestamp="1620627703184">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="217" y="266" width="767" height="598" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1619420288479" />
-    <state x="558" y="84" key="CommitChangelistDialog2" timestamp="1618991802259">
+    <state x="217" y="266" width="767" height="598" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1620627703184" />
+    <state x="558" y="84" key="CommitChangelistDialog2" timestamp="1620617367352">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="558" y="84" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1618991802259" />
+    <state x="558" y="84" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1620617367352" />
     <state width="436" height="466" key="DebuggerActiveHint" timestamp="1612418020591">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -458,38 +347,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1620262859096" />
-    <state width="1876" height="96" key="GridCell.Tab.0.bottom" timestamp="1619513073676">
+    <state width="1877" height="337" key="GridCell.Tab.0.bottom" timestamp="1620632966830">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="96" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1619513073676" />
-    <state width="1876" height="96" key="GridCell.Tab.0.center" timestamp="1619513073676">
+    <state width="1877" height="337" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620632966830" />
+    <state width="1877" height="337" key="GridCell.Tab.0.center" timestamp="1620632966829">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="96" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1619513073676" />
-    <state width="1876" height="96" key="GridCell.Tab.0.left" timestamp="1619513073676">
+    <state width="1877" height="337" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620632966829" />
+    <state width="1877" height="337" key="GridCell.Tab.0.left" timestamp="1620632966829">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="96" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1619513073676" />
-    <state width="1876" height="96" key="GridCell.Tab.0.right" timestamp="1619513073676">
+    <state width="1877" height="337" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620632966829" />
+    <state width="1877" height="337" key="GridCell.Tab.0.right" timestamp="1620632966829">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="96" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619513073676" />
-    <state width="1876" height="319" key="GridCell.Tab.1.bottom" timestamp="1619513073671">
+    <state width="1877" height="337" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620632966829" />
+    <state width="1877" height="337" key="GridCell.Tab.1.bottom" timestamp="1620632966507">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="319" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1619513073671" />
-    <state width="1876" height="319" key="GridCell.Tab.1.center" timestamp="1619513073671">
+    <state width="1877" height="337" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620632966507" />
+    <state width="1877" height="337" key="GridCell.Tab.1.center" timestamp="1620632966505">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="319" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1619513073671" />
-    <state width="1876" height="319" key="GridCell.Tab.1.left" timestamp="1619513073671">
+    <state width="1877" height="337" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620632966505" />
+    <state width="1877" height="337" key="GridCell.Tab.1.left" timestamp="1620632966505">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="319" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1619513073671" />
-    <state width="1876" height="319" key="GridCell.Tab.1.right" timestamp="1619513073671">
+    <state width="1877" height="337" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620632966505" />
+    <state width="1877" height="337" key="GridCell.Tab.1.right" timestamp="1620632966507">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="319" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619513073671" />
+    <state width="1877" height="337" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620632966507" />
     <state width="1876" height="318" key="GridCell.Tab.2.bottom" timestamp="1619406968801">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -510,10 +399,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="220" height="477" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1617953475057" />
-    <state x="490" y="174" key="Maven.ArtifactSearchDialog" timestamp="1619161542584">
+    <state x="490" y="174" key="Maven.ArtifactSearchDialog" timestamp="1620618527576">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="490" y="174" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619161542584" />
+    <state x="490" y="174" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620618527576" />
     <state x="385" y="207" width="1388" height="738" key="SettingsEditor" timestamp="1619772869758">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -534,10 +423,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619167920742" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1618987542261">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1620635424120">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618987542261" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620635424120" />
     <state x="753" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1618991805679">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -546,10 +435,6 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="662" y="254" width="596" height="532" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1619171158158" />
-    <state x="331" y="128" key="new project wizard" timestamp="1611827972737">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="331" y="128" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1611827972737" />
     <state x="800" y="275" key="refactoring.ChangeSignatureDialog" timestamp="1615430459962">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -562,16 +447,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="160" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1619441202383" />
-    <state x="790" y="310" key="svn.repositoryBrowser" timestamp="1611641304428">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="790" y="310" key="svn.repositoryBrowser/0.0.1920.1040@0.0.1920.1040" timestamp="1611641304428" />
-    <state x="789" y="281" key="svn4idea.import.options" timestamp="1611629437365">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="789" y="281" key="svn4idea.import.options/0.0.1920.1040@0.0.1920.1040" timestamp="1611629437365" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/project_platform$BackendApplication.ic" NAME="BackendApplication Coverage Results" MODIFIED="1619168849085" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/project_platform$ImageLocationUtil.ic" NAME="ImageLocationUtil Coverage Results" MODIFIED="1620626499536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.demo.common.util.*</FILTER>
+    </SUITE>
   </component>
 </project>

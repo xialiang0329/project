@@ -15,6 +15,7 @@
                        :props="defaultProps"
                        :filter-node-method="filterNode"
                        ref="tree"
+                       oncontextmenu="rightClick"
                        @node-click="handleNodeClick">
                 <span class="custom-tree-node" slot-scope="{ node, data }">
                   <span :class="checkedMenu.pkid == data.pkid ? 'node-color-blue' : 'node-color-none'">{{ node.label }}</span>
@@ -51,13 +52,15 @@
           </div>
         </el-col>
       </el-row>
+
+
+      <div v-if="isShow">123123123</div>
     </div>
 </template>
 
 <script>
   import {addMenu, queryMenuList} from "../../api/menu";
     import dateFormat from "../../common/util";
-
     export default {
       name: "MenuMain",
       watch: {
@@ -67,6 +70,7 @@
       },
       data() {
         return {
+          isShow:false,
           filterText: '',
           menuList: [],
           checkedMenu: {},
@@ -142,13 +146,14 @@
             $this.$message({message: "新增成功!", type: 'success'});
             $this.form.pkid = res.data;
             $this.form.children = [];
+            let from = JSON.parse(JSON.stringify($this.form));
             if (!$.isEmptyObject($this.checkedMenu)) {
-              $this.checkedMenu.children.push($this.form);
+              $this.checkedMenu.children.push(from);
             } else {
-              $this.menuList.push($this.form);
+              $this.menuList.push(from);
             }
-            $this.resetForm("ruleForm");
             $this.$store.commit('setMenuList',$this.menuList);
+            $this.resetForm("ruleForm");
           }).catch(error =>{
             $this.$message({
               message: error.response.data.message,
@@ -158,6 +163,10 @@
         },
         resetForm(formName) {
           this.$refs[formName].resetFields();
+        },
+        rightClick() {
+          this.isShow = !this.isShow;
+          return false;
         }
       }
     }

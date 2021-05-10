@@ -1,5 +1,9 @@
 package com.example.demo.pojo;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.io.Serializable;
 
 /**
@@ -8,8 +12,10 @@ import java.io.Serializable;
  * @author makejava
  * @since 2021-02-03 15:20:25
  */
-public class User implements Serializable
-{
+@Getter
+@Setter
+@ToString(callSuper = true)
+public class User implements Serializable {
     private static final long serialVersionUID = 577042502561526498L;
 
     private String pkid;
@@ -32,7 +38,7 @@ public class User implements Serializable
     /**
      * 身份证号
      */
-    private String cardid;
+    private String cardId;
 
     /**
      * 户籍所在地
@@ -45,88 +51,94 @@ public class User implements Serializable
     private String phone;
 
     /**
+     * 头像
+     */
+    private String photo;
+
+    /**
      * 账号
      */
-    private String accountid;
+    private String accountId;
 
-    public String getPkid()
-    {
+    private Account account;
+
+    public String getPkid() {
         return pkid;
     }
 
-    public void setPkid(String pkid)
-    {
+    public void setPkid(String pkid) {
         this.pkid = pkid;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getBirthday()
-    {
+    public String getBirthday() {
         return birthday;
     }
 
-    public void setBirthday(String birthday)
-    {
+    public void setBirthday(String birthday) {
         this.birthday = birthday;
     }
 
-    public String getSex()
-    {
+    public String getSex() {
         return sex;
     }
 
-    public void setSex(String sex)
-    {
+    public void setSex(String sex) {
         this.sex = sex;
     }
 
-    public String getCardid()
-    {
-        return cardid;
+    public String getCardId() {
+        return cardId;
     }
 
-    public void setCardid(String cardid)
-    {
-        this.cardid = cardid;
+    public void setCardId(String cardId) {
+        this.cardId = cardId;
     }
 
-    public String getAddress()
-    {
+    public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address)
-    {
+    public void setAddress(String address) {
         this.address = address;
     }
 
-    public String getPhone()
-    {
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone)
-    {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
-    public String getAccountid()
-    {
-        return accountid;
+    public String getPhoto() {
+        return photo;
     }
 
-    public void setAccountid(String accountid)
-    {
-        this.accountid = accountid;
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
+    public String getAccountId() {
+        return accountId;
+    }
+
+    public void setAccountId(String accountId) {
+        this.accountId = accountId;
+    }
+
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
 }

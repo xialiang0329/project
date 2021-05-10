@@ -17,8 +17,7 @@ import java.util.List;
 @Getter
 @Setter
 @ToString(callSuper = true)
-public class Menu implements Serializable
-{
+public class Menu implements Serializable {
     private static final long serialVersionUID = 443069342306904072L;
 
     private String pkid;

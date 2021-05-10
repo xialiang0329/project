@@ -1,5 +1,10 @@
 package com.example.demo.pojo;
 
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.io.Serializable;
 
 /**
@@ -8,8 +13,10 @@ import java.io.Serializable;
  * @author makejava
  * @since 2021-02-03 15:20:12
  */
-public class Account implements Serializable
-{
+@Getter
+@Setter
+@ToString(callSuper = true)
+public class Account implements Serializable {
     private static final long serialVersionUID = 989238860835793520L;
 
     private String pkid;
@@ -20,56 +27,11 @@ public class Account implements Serializable
 
     private String createTime;
 
-    private String userid;
+    private String userId;
 
-    public String getPkid()
-    {
-        return pkid;
-    }
+    private String status;
 
-    public void setPkid(String pkid)
-    {
-        this.pkid = pkid;
-    }
+    private String token;//标识
 
-    public String getAccountName()
-    {
-        return accountName;
-    }
-
-    public void setAccountName(String accountName)
-    {
-        this.accountName = accountName;
-    }
-
-    public String getPassword()
-    {
-        return password;
-    }
-
-    public void setPassword(String password)
-    {
-        this.password = password;
-    }
-
-    public String getCreateTime()
-    {
-        return createTime;
-    }
-
-    public void setCreateTime(String createTime)
-    {
-        this.createTime = createTime;
-    }
-
-    public String getUserid()
-    {
-        return userid;
-    }
-
-    public void setUserid(String userid)
-    {
-        this.userid = userid;
-    }
 
 }

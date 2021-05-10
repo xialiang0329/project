@@ -1,24 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.demo.dao.interfaces.UserDao">
+<mapper namespace="com.example.demo.dao.interfaces.UserDao" >
 
     <resultMap type="com.example.demo.pojo.User" id="UserMap">
         <result property="pkid" column="pkid" jdbcType="VARCHAR"/>
         <result property="name" column="name" jdbcType="VARCHAR"/>
         <result property="birthday" column="birthday" jdbcType="VARCHAR"/>
         <result property="sex" column="sex" jdbcType="VARCHAR"/>
-        <result property="cardid" column="cardId" jdbcType="VARCHAR"/>
+        <result property="cardId" column="cardId" jdbcType="VARCHAR"/>
         <result property="address" column="address" jdbcType="VARCHAR"/>
         <result property="phone" column="phone" jdbcType="VARCHAR"/>
-        <result property="accountid" column="accountId" jdbcType="VARCHAR"/>
+        <result property="photo" column="photo" jdbcType="VARCHAR"/>
+        <result property="accountId" column="accountId" jdbcType="VARCHAR"/>
+        <association property="account"  javaType="com.example.demo.pojo.Account">
+            <result column="status" property="status" />
+        </association>
     </resultMap>
 
+    <sql id="userSql">
+        u.pkid, u.name, u.birthday, u.sex, u.cardId, u.address, u.phone, u.photo, u.accountId
+    </sql>
     <!--查询单个-->
     <select id="queryById" resultMap="UserMap">
         select
           pkid, name, birthday, sex, cardId, address, phone, accountId
         from vue_private.user
         where pkid = #{pkid}
+    </select>
+
+    <!--查询-->
+    <select id="selectUserRelationContactsByUserId" resultMap="UserMap">
+        select
+          <include refid="userSql" />,a.status as 'status'
+        from user u inner join contacts c on c.to_user_id = u.pkid
+        inner join account a on a.userId = u.pkid
+        where c.user_id = #{userId} or c.to_user_id = #{userId}
     </select>
 
     <!--查询指定行数据-->

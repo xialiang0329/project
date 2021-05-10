@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/backend/backend.iml" filepath="$PROJECT_DIR$/backend/backend.iml" />
-      <module fileurl="file://$PROJECT_DIR$/untitled/untitled.iml" filepath="$PROJECT_DIR$/untitled/untitled.iml" />
       <module fileurl="file://$PROJECT_DIR$/vue-pc/vue-pc.iml" filepath="$PROJECT_DIR$/vue-pc/vue-pc.iml" />
       <module fileurl="file://$PROJECT_DIR$/vue-phone/vue-phone.iml" filepath="$PROJECT_DIR$/vue-phone/vue-phone.iml" />
     </modules>

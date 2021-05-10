@@ -30,7 +30,7 @@
           <el-aside width="200px" style="height: 100%" >
             <div class="outer-container">
               <div class="inner-container">
-                <el-menu :default-active="menuList[0] ? menuList[0].url : ''" router class="el-menu-vertical-demo"
+                <el-menu :default-active="defaultActive" router class="el-menu-vertical-demo"
                          background-color="#545c64"
                          text-color="#fff"
                          active-text-color="#ffd04b"
@@ -74,13 +74,27 @@
 
    export default {
      name: "HomePage",
+     watch: {
+       '$route.path': function (newVal, oldVal) {//监听路由 发生改变时 改变菜单选中对象
+         this.$nextTick(function () {
+           this.defaultActive = newVal;
+         });
+       }
+     },
      data(){
        return {
          menuList:[],
          isCollapse: false,
+         defaultActive:this.$route.path,
+         //socket.io
+         websocket:null,
+         serverUri:"http://127.0.0.1:9003",
+         sendEvent:"ServerReceive",
+         receiveEvent:"ClientReceive",
        }
      },
      created() {
+       this.socketIoLoad();
        this.initHomePage();
      },
      methods: {
@@ -92,7 +106,10 @@
            //查询菜单集合
            queryMenuList().then(res =>{
              $this.menuList = res.data;
-             $this.$store.commit('setMenuList',$this.menuList)
+             if (!$this.defaultActive) {
+               $this.defaultActive = $this.menuList[0].url;
+             }
+             $this.$store.commit('setMenuList',$this.menuList);
            }).catch(error =>{
              $this.$message({
                message: '菜单查询出错!',
@@ -101,6 +118,27 @@
            })
          }
        },
+       socketIoLoad:function () {
+         let $this = this;
+         $this.websocket = $this.$socketio.connect($this.serverUri, {
+           'force new connection': true,
+           'query': 'loginUserInfo=' + localStorage.getItem("loginUserInfo")
+         });
+         $this.websocket.on('connect', function () {
+           console.log("socket连接成功");
+           $this.$store.commit('setWebsocket',$this.websocket);
+         });
+         let userInfo = JSON.parse(localStorage.getItem("loginUserInfo"));
+         $this.websocket.on($this.receiveEvent, function (data) {
+           console.log("receive",data);
+           if (userInfo.pkid != data.fromPkid) {
+             $this.$notify({
+               title: data.from == 'system' ? '系统通知' : '',
+               message: data.message
+             });
+           }
+         });
+       }
      }
    }
 </script>

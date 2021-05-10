@@ -17,13 +17,13 @@
     <select id="findPCMenuList" resultMap="MenuMap">
         select
           pkid, name, parent_id, sort, icon, url, type, create_time
-        from menu where type = 'pc' and parent_id = '-1'
+        from menu where type = 'pc' and parent_id = '-1' order by sort + 0
     </select>
     <!--查询子级-->
     <select id="findPCMenuListByParentId" resultMap="MenuMap">
         select
           pkid, name, parent_id, sort, icon, url, type, create_time
-        from menu where parent_id = #{parentId}
+        from menu where parent_id = #{parentId} order by sort + 0
     </select>
 
 

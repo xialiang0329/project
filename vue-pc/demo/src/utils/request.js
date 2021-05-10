@@ -18,17 +18,8 @@ let URL = "";
 http.interceptors.request.use(config => {
 
   let token = JSON.parse(window.localStorage.getItem("token"));
-  let username = JSON.parse(window.localStorage.getItem("username"));
-  // let mt = JSON.parse(window.localStorage.getItem("mt"))==null ?  "" :JSON.parse(window.localStorage.getItem("mt"));
-  // let isAuth2Login = JSON.parse(window.localStorage.getItem("isAuth2Login"));
-
   if (token != null) {
-    config.headers.common['token'] = token['key_Spp_token'];
-    config.headers.common['username'] = username['key_Spp_username'];
-    // config.headers.common['userid'] = username['key_Spp_userid'];
-    // config.headers.common['mt'] = mt['mt'];
-    /*config.headers.common['isAuth2Login'] = isAuth2Login['isAuth2Login'];*/
-    // config.headers.common['isAuth2Login'] = isAuth2Login;
+    config.headers.common['token'] = token;
   }
   URL=config.baseURL;
   loadingInstance = Loading.service({"background": "rgba(0, 0, 0, 0.8)"});
@@ -53,7 +44,7 @@ http.interceptors.response.use(
   response => response,
   error => {
     if (error.response.status == 504 || error.response.status == 404) {
-      Message.error({message: '服务器被吃了⊙﹏⊙∥'});
+      Message.error({message: '服务器忙！'});
     } else if (error.response.status == 403) {
       Message.error({message: '权限不足,请联系管理员!'});
     } else if (error.response.status == 401) {

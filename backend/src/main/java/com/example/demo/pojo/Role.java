@@ -1,5 +1,9 @@
 package com.example.demo.pojo;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.io.Serializable;
 
 /**
@@ -8,8 +12,10 @@ import java.io.Serializable;
  * @author makejava
  * @since 2021-02-03 15:20:24
  */
-public class Role implements Serializable
-{
+@Getter
+@Setter
+@ToString(callSuper = true)
+public class Role implements Serializable {
     private static final long serialVersionUID = -37462765554164049L;
 
     private String pkid;
@@ -24,33 +30,27 @@ public class Role implements Serializable
      */
     private String createTime;
 
-    public String getPkid()
-    {
+    public String getPkid() {
         return pkid;
     }
 
-    public void setPkid(String pkid)
-    {
+    public void setPkid(String pkid) {
         this.pkid = pkid;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public void setName(String name)
-    {
+    public void setName(String name) {
         this.name = name;
     }
 
-    public String getCreateTime()
-    {
+    public String getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(String createTime)
-    {
+    public void setCreateTime(String createTime) {
         this.createTime = createTime;
     }
 

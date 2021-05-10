@@ -1,16 +1,19 @@
 package com.example.demo.controller;
 
-import com.alibaba.fastjson.JSONObject;
 import com.example.demo.common.util.EntWeChatUtil;
 import com.example.demo.common.util.ImageCodeUtil;
 import com.example.demo.common.util.vo.wechat.GetUserInfo;
 import com.example.demo.pojo.Account;
+import com.example.demo.pojo.User;
 import com.example.demo.service.AccountService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -21,9 +24,9 @@ import java.io.IOException;
  */
 @RestController
 @RequestMapping("account")
-public  class  AccountController
-{
+public  class  AccountController {
 
+    private final static Logger logger = LoggerFactory.getLogger(AccountController.class);
     @Autowired
     private AccountService accountService;
 
@@ -56,7 +59,7 @@ public  class  AccountController
      * @param account
      */
     @PostMapping("login")
-    public Account login(@RequestBody Account account){
+    public User login(HttpSession session, @RequestBody Account account){
         return accountService.queryByAccountNameAndPassword(account.getAccountName(), account.getPassword());
     }
 

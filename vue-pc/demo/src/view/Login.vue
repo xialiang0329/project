@@ -25,7 +25,7 @@
                 </div>
                 <div class="inputDiv" style="position: relative">
                   <i class="el-icon-picture-outline"></i>
-                  <input type="text" placeholder="请输入验证码" class="inputClass" style="padding-right: 25%" v-model="account.code"></input>
+                  <input type="text" placeholder="请输入验证码" class="inputClass" style="padding-right: 25%" @keydown.enter="submit()" v-model="account.code"></input>
                   <img class="imageCode"  :src="imageStr" alt="" @click="queryImageCode()" >
                 </div>
                 <div>
@@ -36,7 +36,7 @@
                     <i class="el-icon-mobile "><el-link type="primary">短信登录</el-link></i>
                   </div>
                 </div>
-                <el-button type="primary" round style="width: 65%;font-size: 18px;margin-bottom: 3%" @click="submit()" @keyup.enter="submit()">点 击 登 录</el-button>
+                <el-button type="primary" round style="width: 65%;font-size: 18px;margin-bottom: 3%" @click="submit()" @keydown.enter="submit()">点 击 登 录</el-button>
                 <div style="width:49%;float:right;">
                   <el-link type="primary">忘记密码？</el-link>
                 </div>
@@ -102,7 +102,7 @@
                   accountName:$this.account.accountName
                 }
                 login(data).then(res =>{
-                 // window.localStorage.setItem("token",data.password)
+                  window.localStorage.setItem("loginUserInfo",JSON.stringify(res.data));
                   $this.goHomePage();
                 }).catch(error =>{
                   $this.queryImageCode();
@@ -147,7 +147,7 @@
         goHomePage(){
           let $this = this;
           $this.$router.push({
-            path:"/homePage"
+            path:"/menu/main"
           });
         }
       }

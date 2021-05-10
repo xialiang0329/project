@@ -1,6 +1,7 @@
 package com.example.demo.dao.interfaces;
 
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.demo.pojo.User;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -16,6 +17,13 @@ import java.util.List;
 @Repository
 public interface UserDao
 {
+
+    /**
+     * 根据userId查找联系人
+     * @param userId
+     * @return
+     */
+    List<User> selectUserRelationContactsByUserId(String userId);
 
     /**
      * 通过ID查询单条数据

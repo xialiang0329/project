@@ -1,8 +1,11 @@
 package com.example.demo.service;
 
+import com.example.demo.common.code.StatusCodeEnum;
 import com.example.demo.common.util.TokenUtil;
 import com.example.demo.dao.interfaces.AccountDao;
+import com.example.demo.dao.interfaces.UserDao;
 import com.example.demo.pojo.Account;
+import com.example.demo.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.yaml.snakeyaml.tokens.Token;
@@ -21,6 +24,9 @@ public class AccountService
     @Autowired
     private AccountDao accountDao;
 
+    @Autowired
+    private UserDao userDao;
+
 
     /**
      * 通过账号与密码
@@ -29,13 +35,17 @@ public class AccountService
      * @param password 密码
      * @return 实例对象
      */
-    public Account queryByAccountNameAndPassword(String accountName,String password)
+    public User queryByAccountNameAndPassword(String accountName,String password)
     {
         Account accountRsp = accountDao.selectByAccountNameAndPassword(accountName,password);
         if (null != accountRsp) {
-            String token = TokenUtil.createToken();
-
-            return accountRsp;
+            //登录成功 修改账号状态
+            accountRsp.setStatus(StatusCodeEnum.loginStatus.on_line.getKey());
+            accountRsp.setPassword(null);
+            accountDao.update(accountRsp);
+            User user = userDao.queryById(accountRsp.getUserId());
+            user.setAccount(accountRsp);
+            return user;
         }
         throw new RuntimeException("用户名或密码错误!");
     }

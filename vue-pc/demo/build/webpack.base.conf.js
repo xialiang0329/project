@@ -92,8 +92,8 @@ module.exports = {
 
   externals:{
     '$': 'jquery',
-    "BMap" : "BMap",
-    "AMap" : "AMap",
-    'WxLogin': 'WxLogin'
+    "BMap" : "BMap",//百度地图
+    "AMap" : "AMap",//高德地图
+    'WxLogin': 'WxLogin',//企业微信登录
   },
 }

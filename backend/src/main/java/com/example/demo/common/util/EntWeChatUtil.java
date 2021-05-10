@@ -2,7 +2,6 @@ package com.example.demo.common.util;
 
 import com.alibaba.fastjson.JSONObject;
 import com.example.demo.common.util.vo.wechat.GetUserInfo;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;

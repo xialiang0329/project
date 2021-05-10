@@ -1,5 +1,9 @@
 package com.example.demo.pojo;
 
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.io.Serializable;
 
 /**
@@ -8,8 +12,10 @@ import java.io.Serializable;
  * @author makejava
  * @since 2021-02-03 15:20:22
  */
-public class RelationRoleMenu implements Serializable
-{
+@Getter
+@Setter
+@ToString(callSuper = true)
+public class RelationRoleMenu implements Serializable {
     private static final long serialVersionUID = 372419133336069522L;
 
     private String pkid;
@@ -24,33 +30,27 @@ public class RelationRoleMenu implements Serializable
      */
     private String menuid;
 
-    public String getPkid()
-    {
+    public String getPkid() {
         return pkid;
     }
 
-    public void setPkid(String pkid)
-    {
+    public void setPkid(String pkid) {
         this.pkid = pkid;
     }
 
-    public String getRoleid()
-    {
+    public String getRoleid() {
         return roleid;
     }
 
-    public void setRoleid(String roleid)
-    {
+    public void setRoleid(String roleid) {
         this.roleid = roleid;
     }
 
-    public String getMenuid()
-    {
+    public String getMenuid() {
         return menuid;
     }
 
-    public void setMenuid(String menuid)
-    {
+    public void setMenuid(String menuid) {
         this.menuid = menuid;
     }
 

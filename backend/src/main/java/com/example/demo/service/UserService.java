@@ -1,6 +1,8 @@
 package com.example.demo.service;
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.demo.dao.interfaces.UserDao;
+import com.example.demo.pojo.Role;
 import com.example.demo.pojo.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,12 @@ public class UserService
 {
     @Autowired
     private UserDao userDao;
+
+
+    public List<User> queryUserRelationContactsByUserId(String userId){
+        return userDao.selectUserRelationContactsByUserId(userId);
+    }
+
 
     /**
      * 通过ID查询单条数据

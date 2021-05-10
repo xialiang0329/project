@@ -7,7 +7,7 @@
         <result property="accountName" column="account_name" jdbcType="VARCHAR"/>
         <result property="password" column="password" jdbcType="VARCHAR"/>
         <result property="createTime" column="create_time" jdbcType="VARCHAR"/>
-        <result property="userid" column="userId" jdbcType="VARCHAR"/>
+        <result property="userId" column="userId" jdbcType="VARCHAR"/>
     </resultMap>
 
 
@@ -87,7 +87,7 @@
 
     <!--通过主键修改数据-->
     <update id="update">
-        update vue_private.account
+        update account
         <set>
             <if test="accountName != null and accountName != ''">
                 account_name = #{accountName},
@@ -98,8 +98,11 @@
             <if test="createTime != null and createTime != ''">
                 create_time = #{createTime},
             </if>
-            <if test="userid != null and userid != ''">
-                userId = #{userid},
+            <if test="userId != null and userId != ''">
+                userId = #{userId},
+            </if>
+            <if test="status != null and status != ''">
+                status = #{status},
             </if>
         </set>
         where pkid = #{pkid}
@@ -107,7 +110,7 @@
 
     <!--通过主键删除-->
     <delete id="deleteById">
-        delete from vue_private.account where pkid = #{pkid}
+        delete from account where pkid = #{pkid}
     </delete>
 
 </mapper>

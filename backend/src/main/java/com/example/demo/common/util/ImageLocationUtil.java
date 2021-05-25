@@ -1,127 +1,81 @@
 package com.example.demo.common.util;
 
-import com.alibaba.fastjson.JSONObject;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.pdf.PdfWriter;
 import org.springframework.util.ResourceUtils;
+import org.springframework.util.StringUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
-/**
- * 图片定位
- */
 public class ImageLocationUtil
 {
-
-    private static final Font font = new Font("楷体", Font.BOLD, 20);// 添加字体的属性设置
+    private static final Font font = new Font("楷体", Font.PLAIN, 30);// 添加字体的属性设置
 
     private Graphics2D g = null;
-    private int x = 0;
-    private int y = 0;
 
-    public BufferedImage modifyImage(BufferedImage img, Map<String, JSONObject> contentMap)
+    private int px = 0;
+
+    private int py = 0;
+
+    /**
+     *  修改图片
+     * @param img 模板图片
+     * @param contentMap startX开始坐标 endX结束坐标(进行换行) y坐标 v值
+     */
+    public BufferedImage modifyImage(BufferedImage img, List<Map<String,String>> contentMap)
     {
-        try {
+        try
+        {
             int w = img.getWidth();
             int h = img.getHeight();
             g = img.createGraphics();
             g.setBackground(Color.WHITE);
-            g.setColor(Color.BLACK);
-            if (this.font != null)
-                g.setFont(this.font);
+            float[] floats = Color.RGBtoHSB(89, 88, 83, null);
+            g.setColor(Color.getHSBColor(floats[0],floats[1],floats[2]));
+            if (this.font != null) {g.setFont(this.font);}
+
             // 验证输出位置的纵坐标和横坐标
-            Iterator<Map.Entry<String, JSONObject>> iterator = contentMap.entrySet().iterator();
-            while (iterator.hasNext()) {
-                Map.Entry<String, JSONObject> next = iterator.next();
-                JSONObject jsonObject = next.getValue();
-                int x = jsonObject.getIntValue("x");
-                int y = jsonObject.getIntValue("y");
-                if (x >= h || y >= w) {
-                    this.x = h - font.getSize() + 2;
-                    this.y = w;
-                } else {
-                    this.x = x;
-                    this.y = y;
+            contentMap.forEach(map ->{
+                String v = map.get("v");
+                if(!StringUtils.isEmpty(v)) {
+                    int startX = Integer.valueOf(map.get("startX"));
+                    int y = Integer.valueOf(map.get("y"));
+                    int endX = -1;
+                    String endXStr = map.get("endX");
+                    if (!StringUtils.isEmpty(endXStr)) {
+                        endX =  Integer.valueOf(endXStr);
+                    }
+                    if (startX >= w || y >= h) {
+                        this.px = w - font.getSize();
+                        this.py = h - (v.length() * font.getSize());
+                    } else {
+                        this.px = startX;
+                        this.py = y;
+                    }
+                    if (endX != -1) {
+                        //需要进行手动换行
+                        manualLineFeed(v,endX - this.px);
+                    } else {
+                        g.drawString(v, this.px, this.py);
+                    }
                 }
-                //数据分割 手动换行
-                List<String> ls = list2(jsonObject.getString("value"),w-this.x,font.getSize());
-                for(int i=0;i<ls.size();i++){
-                    g.drawString(ls.get(i), this.x, this.y);
-                    this.y+=30;
-                }
-
-                g.drawString(jsonObject.getString("value"), x, y);
-                this.y +=30;
-            }
+            });
             g.dispose();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
         }
-        return img;
-    }
-
-    /**
-     * 把字符串分行
-     * @param maxLength 一行长度#像素
-     * @param fontSzie 字体大小
-     * @return List<String>
-     */
-    public List<String> list2(String text,int maxLength,int fontSzie){
-        int length = 0;
-        int lengthcl=maxLength/fontSzie;
-        List<String> list = new ArrayList<String>();
-        StringBuffer sb = new StringBuffer();
-        for (int i = 0; i < text.length(); i++) {
-            if (new String(text.charAt(i) + "").getBytes().length > 1) {
-                length += 2;
-            } else {
-                length += 1;
-            }
-            if((length+1)/2<=lengthcl){
-                sb.append(text.charAt(i));
-            }else{
-                i--;
-                length=0;
-                list.add(sb.toString());
-                sb= new StringBuffer();
-            }
-        }
-        return list;
-    }
-
-
-
-    public static void main(String[] args) {
-        Map<String, JSONObject> dataMap = new HashMap<>();
-        JSONObject jsonObject = new JSONObject();
-        jsonObject.put("value","jsagvdi阿苏和规范的撒欧菲光萨佛都有撒点哦啊搜到噶是的撒大广赛U盾噶随意打个扫毒应该撒的谎该速度噶啥的撒多啊是的噶是的高压输电suyfgdasfy 数据的规范");
-        jsonObject.put("x",600);
-        jsonObject.put("y",20);
-        dataMap.put("name",jsonObject);
-        try
-        {
-            ImageLocationUtil tt = new ImageLocationUtil();
-            //读取模板图片
-            BufferedImage bufferedImage = tt.loadImageLocal("image/imageTest.jpg");//模板
-            int width = bufferedImage.getWidth();//图片宽度
-            int height = bufferedImage.getHeight();//图片高度
-            //从图片中读取RGB
-            int[] ImageArray = new int[width*height];
-            ImageArray = bufferedImage.getRGB(0,0,width,height,ImageArray,0,width);
-
-            //生成新图片
-            BufferedImage ImageNew = new BufferedImage(width,height,BufferedImage.TYPE_INT_RGB);
-            ImageNew.setRGB(0,0,width,height,ImageArray,0,width);//设置RGB
-            tt.writeImageLocal("C:\\Users\\Administrator\\Desktop\\"+System.currentTimeMillis()+".jpg",tt.modifyImage(ImageNew,dataMap));
-        }
-        catch(Exception e)
+        catch (Exception e)
         {
             e.printStackTrace();
         }
+        return img;
     }
 
     /**
@@ -143,16 +97,77 @@ public class ImageLocationUtil
     /**
      * 生成新图片到本地
      */
-    public void writeImageLocal(String newImage, BufferedImage img)
+    public void writeImageLocal(String localImgUrl, BufferedImage img)
     {
-        File file = new File(newImage);
+        File file = new File(localImgUrl);
         try
         {
-            ImageIO.write(img,"jpg",file);
+            ImageIO.write(img, "jpg", file);
         }
         catch (IOException e)
         {
             e.printStackTrace();
+        }
+    }
+
+    /**
+     * 图片转pdf
+     * @param localPDFUrl
+     * @param imgUrl
+     */
+    public void imgToPDF(String localPDFUrl, String imgUrl)
+    {
+        try
+        {
+            File file = new File(localPDFUrl);
+            com.itextpdf.text.Image instance = com.itextpdf.text.Image.getInstance(imgUrl);
+            Document document = new Document(new com.itextpdf.text.Rectangle(instance.getWidth(),instance.getHeight()));
+            document.setMargins(0,0,0,0);
+            PdfWriter pdfWr = PdfWriter.getInstance(document, new FileOutputStream(file));
+            document.open();
+            document.add(PDFUtil.getImage(document, imgUrl, 100, 1));
+            document.close();
+            pdfWr.close();
+        }
+        catch (DocumentException e)
+        {
+            e.printStackTrace();
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+    }
+
+    /**
+     * 手动换行
+     */
+    public void manualLineFeed(String content,int maxLength){
+        int length = 0;
+        int lengthcl=maxLength/font.getSize();
+        List<String> strList = new ArrayList<String>();
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < content.length(); i++) {
+            if (new String(content.charAt(i) + "").getBytes().length > 1) {
+                length += 2;
+            } else {
+                length += 1;
+            }
+            if((length+1)/2<=lengthcl){
+                sb.append(content.charAt(i));
+            }else{
+                i--;
+                length=0;
+                strList.add(sb.toString());
+                sb= new StringBuffer();
+            }
+        }
+        strList.add(sb.toString());
+        for (int i = 0; i < strList.size(); i++)
+        {
+            g.drawString(strList.get(i), this.px, this.py);
+            this.py += font.getSize() + 25;
         }
     }
 

@@ -1,10 +1,10 @@
 package com.example.demo.controller;
 
 import com.example.demo.pojo.Message;
-import com.example.demo.service.MessageService;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * (Message)表控制层
@@ -19,8 +19,6 @@ public class MessageController
     /**
      * 服务对象
      */
-    @Resource
-    private MessageService messageService;
 
     /**
      * 通过主键查询单条数据
@@ -31,7 +29,19 @@ public class MessageController
     @GetMapping("selectOne")
     public Message selectOne(String id)
     {
-        return this.messageService.queryById(id);
+        return null;
+    }
+
+    public static void main(String[] args)
+    {
+        List<Integer> list = Arrays.asList(new Integer[]{1,2,3,4,5,6,7,8,9,10});
+        for (int i = 0; i < list.size(); i++)
+        {
+            if (i == 3 || i == 5) {
+                continue;
+            }
+            System.out.println(i);
+        }
     }
 
 }

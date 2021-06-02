@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dac1b675-70bf-4c26-8746-8278ed20912c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/common/util/ImageLocationUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/backend/src/main/resources/image/imageTest.jpg" afterDir="false" />
+    <list default="true" id="dac1b675-70bf-4c26-8746-8278ed20912c" name="Default Changelist" comment="。。。。。。。。。。。。。。。。">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controller/MessageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/controller/MessageController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/src/main/java/com/example/demo/service/MessageService.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +27,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
@@ -53,7 +60,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="jdk.selected.JAVA_MODULE" value="1.8" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/src/main/resources/image" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../workspace_xl/BW_WUXI_OA/trunk/Code/java/wuxioa" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -63,10 +70,20 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="ts.external.directory.path" value="F:\software\IntelliJ IDEA 2020.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\demo\test-cloud-demo\backend\target\classes" />
+      <recent name="F:\demo\test-cloud-demo\backend\src\main\resources\image" />
+      <recent name="F:\demo\test-cloud-demo\vue-pc\demo\src\assets\imgs" />
+      <recent name="F:\demo\test-cloud-demo\backend\src\main\resources\static" />
+      <recent name="F:\demo\test-cloud-demo\backend\src\main\resources" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.demo.common.socket.server" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\demo\test-cloud-demo\backend\src\main\resources" />
       <recent name="F:\demo\test-cloud-demo\backend\src\main\resources\config" />
@@ -74,24 +91,14 @@
       <recent name="F:\demo\test-cloud-demo\vue-pc\demo\src" />
       <recent name="F:\demo\test-cloud-demo\vue-pc\demo\src\view" />
     </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.example.demo.common.socket.server" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\demo\test-cloud-demo\backend\src\main\resources\image" />
-      <recent name="F:\demo\test-cloud-demo\vue-pc\demo\src\assets\imgs" />
-      <recent name="F:\demo\test-cloud-demo\backend\src\main\resources\static" />
-      <recent name="F:\demo\test-cloud-demo\backend\target\classes" />
-      <recent name="F:\demo\test-cloud-demo\backend\src\main\resources" />
-    </key>
   </component>
-  <component name="RunManager" selected="Application.ImageLocationUtil">
-    <configuration name="AccountService" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.demo.service.AccountService" />
+  <component name="RunManager" selected="Application.MessageController">
+    <configuration name="EntWeChatUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.common.util.EntWeChatUtil" />
       <module name="backend" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.demo.service.*" />
+          <option name="PATTERN" value="com.example.demo.common.util.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -101,6 +108,32 @@
     </configuration>
     <configuration name="ImageLocationUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.example.demo.common.util.ImageLocationUtil" />
+      <module name="backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.demo.common.util.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MessageController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.controller.MessageController" />
+      <module name="backend" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.demo.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PDFUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.example.demo.common.util.PDFUtil" />
       <module name="backend" />
       <extension name="coverage">
         <pattern>
@@ -125,32 +158,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WeChatOfficialAccountUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.demo.common.util.WeChatOfficialAccountUtil" />
-      <module name="backend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.demo.common.util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="pdfUtil" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.example.demo.common.util.pdfUtil" />
-      <module name="backend" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.demo.common.util.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:8080">
       <method v="2" />
     </configuration>
@@ -163,11 +170,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ImageLocationUtil" />
+        <item itemvalue="Application.MessageController" />
+        <item itemvalue="Application.EntWeChatUtil" />
         <item itemvalue="Application.TokenUtil" />
-        <item itemvalue="Application.pdfUtil" />
-        <item itemvalue="Application.AccountService" />
-        <item itemvalue="Application.WeChatOfficialAccountUtil" />
+        <item itemvalue="Application.ImageLocationUtil" />
+        <item itemvalue="Application.PDFUtil" />
       </list>
     </recent_temporary>
   </component>
@@ -207,7 +214,12 @@
       <workItem from="1619771449341" duration="231000" />
       <workItem from="1619771760969" duration="1233000" />
       <workItem from="1620262775433" duration="670000" />
-      <workItem from="1620617168683" duration="11295000" />
+      <workItem from="1620617168683" duration="11323000" />
+      <workItem from="1621590074907" duration="618000" />
+      <workItem from="1621844660896" duration="19290000" />
+      <workItem from="1622254583634" duration="1097000" />
+      <workItem from="1622279796333" duration="553000" />
+      <workItem from="1622442386980" duration="11605000" />
     </task>
     <task id="LOCAL-00001" summary="测试文件提交">
       <created>1611832041905</created>
@@ -279,7 +291,21 @@
       <option name="project" value="LOCAL" />
       <updated>1620617377891</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="。。。。。。。。。。。。。。。。">
+      <created>1620635446475</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1620635446475</updated>
+    </task>
+    <task id="LOCAL-00012" summary="。。。。。。。。。。。。。。。。">
+      <created>1621926451154</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1621926451154</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -299,22 +325,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="。。。。。。。。。。。。。。。。" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="820" y="417" key="#Custom_Plugin_Repositories" timestamp="1612336317282">
+    <state x="595" y="161" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1622447847833">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="820" y="417" key="#Custom_Plugin_Repositories/0.0.1920.1040@0.0.1920.1040" timestamp="1612336317282" />
-    <state x="692" y="235" key="#HTTP_Proxy" timestamp="1612336312348">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="692" y="235" key="#HTTP_Proxy/0.0.1920.1040@0.0.1920.1040" timestamp="1612336312348" />
-    <state x="586" y="197" key="#Inspections" timestamp="1612431178376">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="586" y="197" key="#Inspections/0.0.1920.1040@0.0.1920.1040" timestamp="1612431178376" />
-    <state x="595" y="161" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618802581754">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="595" y="161" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1618802581754" />
+    <state x="595" y="161" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1622447847833" />
     <state x="711" y="319" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1618818229743">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -327,74 +341,70 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="294" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619322092459" />
-    <state x="217" y="266" width="767" height="598" key="#xdebugger.evaluate" timestamp="1620627703184">
+    <state x="217" y="266" width="767" height="598" key="#xdebugger.evaluate" timestamp="1621849585371">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="217" y="266" width="767" height="598" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1620627703184" />
-    <state x="558" y="84" key="CommitChangelistDialog2" timestamp="1620617367352">
+    <state x="217" y="266" width="767" height="598" key="#xdebugger.evaluate/0.0.1920.1040@0.0.1920.1040" timestamp="1621849585371" />
+    <state x="558" y="84" key="CommitChangelistDialog2" timestamp="1621926671625">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="558" y="84" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1620617367352" />
-    <state width="436" height="466" key="DebuggerActiveHint" timestamp="1612418020591">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="436" height="466" key="DebuggerActiveHint/0.0.1920.1040@0.0.1920.1040" timestamp="1612418020591" />
+    <state x="558" y="84" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1621926671625" />
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1619167920733">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619167920733" />
-    <state x="740" y="273" key="FileChooserDialogImpl" timestamp="1620262859096">
+    <state x="740" y="273" key="FileChooserDialogImpl" timestamp="1622451636638">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1620262859096" />
-    <state width="1877" height="337" key="GridCell.Tab.0.bottom" timestamp="1620632966830">
+    <state x="740" y="273" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1622451636638" />
+    <state width="1877" height="59" key="GridCell.Tab.0.bottom" timestamp="1622524683697">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="337" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620632966830" />
-    <state width="1877" height="337" key="GridCell.Tab.0.center" timestamp="1620632966829">
+    <state width="1877" height="59" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622524683697" />
+    <state width="1877" height="59" key="GridCell.Tab.0.center" timestamp="1622524683697">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="337" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620632966829" />
-    <state width="1877" height="337" key="GridCell.Tab.0.left" timestamp="1620632966829">
+    <state width="1877" height="59" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622524683697" />
+    <state width="1877" height="59" key="GridCell.Tab.0.left" timestamp="1622524683696">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="337" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620632966829" />
-    <state width="1877" height="337" key="GridCell.Tab.0.right" timestamp="1620632966829">
+    <state width="1877" height="59" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622524683696" />
+    <state width="1877" height="59" key="GridCell.Tab.0.right" timestamp="1622524683697">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="337" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620632966829" />
-    <state width="1877" height="337" key="GridCell.Tab.1.bottom" timestamp="1620632966507">
+    <state width="1877" height="59" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622524683697" />
+    <state width="1877" height="168" key="GridCell.Tab.1.bottom" timestamp="1622524683683">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="337" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1620632966507" />
-    <state width="1877" height="337" key="GridCell.Tab.1.center" timestamp="1620632966505">
+    <state width="1877" height="168" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622524683683" />
+    <state width="1877" height="168" key="GridCell.Tab.1.center" timestamp="1622524683683">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="337" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1620632966505" />
-    <state width="1877" height="337" key="GridCell.Tab.1.left" timestamp="1620632966505">
+    <state width="1877" height="168" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622524683683" />
+    <state width="1877" height="168" key="GridCell.Tab.1.left" timestamp="1622524683683">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="337" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1620632966505" />
-    <state width="1877" height="337" key="GridCell.Tab.1.right" timestamp="1620632966507">
+    <state width="1877" height="168" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622524683683" />
+    <state width="1877" height="168" key="GridCell.Tab.1.right" timestamp="1622524683683">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="337" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1620632966507" />
-    <state width="1876" height="318" key="GridCell.Tab.2.bottom" timestamp="1619406968801">
+    <state width="1877" height="168" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622524683683" />
+    <state width="1877" height="168" key="GridCell.Tab.2.bottom" timestamp="1622524683684">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="318" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1619406968801" />
-    <state width="1876" height="318" key="GridCell.Tab.2.center" timestamp="1619406968801">
+    <state width="1877" height="168" key="GridCell.Tab.2.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1622524683684" />
+    <state width="1877" height="168" key="GridCell.Tab.2.center" timestamp="1622524683684">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="318" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1619406968801" />
-    <state width="1876" height="318" key="GridCell.Tab.2.left" timestamp="1619406968801">
+    <state width="1877" height="168" key="GridCell.Tab.2.center/0.0.1920.1040@0.0.1920.1040" timestamp="1622524683684" />
+    <state width="1877" height="168" key="GridCell.Tab.2.left" timestamp="1622524683683">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="318" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1619406968801" />
-    <state width="1876" height="318" key="GridCell.Tab.2.right" timestamp="1619406968801">
+    <state width="1877" height="168" key="GridCell.Tab.2.left/0.0.1920.1040@0.0.1920.1040" timestamp="1622524683683" />
+    <state width="1877" height="168" key="GridCell.Tab.2.right" timestamp="1622524683684">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1876" height="318" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1619406968801" />
+    <state width="1877" height="168" key="GridCell.Tab.2.right/0.0.1920.1040@0.0.1920.1040" timestamp="1622524683684" />
     <state width="220" height="477" key="HiddenNamespacesPopup" timestamp="1617953475057">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -403,18 +413,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="490" y="174" key="Maven.ArtifactSearchDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620618527576" />
-    <state x="385" y="207" width="1388" height="738" key="SettingsEditor" timestamp="1619772869758">
+    <state x="726" y="221" key="RollbackChangesDialog" timestamp="1622442420708">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="385" y="207" width="1388" height="738" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1619772869758" />
+    <state x="726" y="221" key="RollbackChangesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1622442420708" />
+    <state x="385" y="207" width="1388" height="738" key="SettingsEditor" timestamp="1622448213107">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="385" y="207" width="1388" height="738" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1622448213107" />
     <state width="498" height="477" key="SwitcherDM" timestamp="1619441129123">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="498" height="477" key="SwitcherDM/0.0.1920.1040@0.0.1920.1040" timestamp="1619441129123" />
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1618991755535">
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2" timestamp="1621926862537">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1618991755535" />
+    <state x="552" y="252" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1621926862537" />
     <state width="968" height="528" key="XDebugger.FullValuePopup" timestamp="1619161135929">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -423,18 +437,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1619167920742" />
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1620635424120">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1622448063156">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1620635424120" />
-    <state x="753" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1618991805679">
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1622448063156" />
+    <state x="753" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1622448817647">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="753" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1618991805679" />
-    <state x="662" y="254" width="596" height="532" key="find.popup" timestamp="1619171158158">
+    <state x="753" y="432" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1622448817647" />
+    <state x="662" y="254" width="596" height="532" key="find.popup" timestamp="1622448880014">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="662" y="254" width="596" height="532" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1619171158158" />
+    <state x="662" y="254" width="596" height="532" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1622448880014" />
     <state x="800" y="275" key="refactoring.ChangeSignatureDialog" timestamp="1615430459962">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
